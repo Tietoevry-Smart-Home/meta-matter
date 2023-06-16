@@ -1,0 +1,26 @@
+diff --git a/src/web/CMakeLists.txt b/src/web/CMakeLists.txt
+index 37ba68ffcf..6e6cb76947 100644
+--- a/src/web/CMakeLists.txt
++++ b/src/web/CMakeLists.txt
+@@ -32,6 +32,8 @@ set(Boost_USE_MULTITHREADED ON)
+ set(Boost_USE_STATIC_RUNTIME OFF)
+ find_package(Boost REQUIRED COMPONENTS filesystem system)
+ set(OTBR_WEB_DATADIR ${CMAKE_INSTALL_FULL_DATADIR}/otbr-web)
++# Wait 10 seconds for the agent to successfully load.
++set(EXEC_START_PRE "ExecStartPre=/bin/sleep 10\n")
+ 
+ add_executable(otbr-web
+     main.cpp
+diff --git a/src/web/otbr-web.service.in b/src/web/otbr-web.service.in
+index 575e3255bf..c12f18832d 100644
+--- a/src/web/otbr-web.service.in
++++ b/src/web/otbr-web.service.in
+@@ -5,7 +5,7 @@ ConditionPathExists=@CMAKE_INSTALL_FULL_SBINDIR@/otbr-web
+ 
+ [Service]
+ EnvironmentFile=-@CMAKE_INSTALL_FULL_SYSCONFDIR@/default/otbr-web
+-ExecStart=@CMAKE_INSTALL_FULL_SBINDIR@/otbr-web $OTBR_WEB_OPTS
++@EXEC_START_PRE@ExecStart=@CMAKE_INSTALL_FULL_SBINDIR@/otbr-web $OTBR_WEB_OPTS
+ Restart=on-failure
+ RestartSec=5
+ RestartPreventExitStatus=SIGKILL

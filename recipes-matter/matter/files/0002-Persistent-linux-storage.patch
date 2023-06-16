@@ -1,0 +1,47 @@
+diff --git a/src/controller/ExamplePersistentStorage.cpp b/src/controller/ExamplePersistentStorage.cpp
+index e4b8188780..71825df5e1 100644
+--- a/src/controller/ExamplePersistentStorage.cpp
++++ b/src/controller/ExamplePersistentStorage.cpp
+@@ -45,7 +45,7 @@ std::string GetFilename(const char * name)
+
+     if (tmpdir == nullptr)
+     {
+-        tmpdir = "/tmp";
++        tmpdir = "/usr/lib/matter";
+     }
+
+     if (name == nullptr)
+diff --git a/src/platform/Linux/CHIPLinuxStorage.h b/src/platform/Linux/CHIPLinuxStorage.h
+index 748385f0d1..e83a417359 100644
+--- a/src/platform/Linux/CHIPLinuxStorage.h
++++ b/src/platform/Linux/CHIPLinuxStorage.h
+@@ -37,15 +37,15 @@
+ #include <platform/Linux/CHIPLinuxStorageIni.h>
+
+ #ifndef FATCONFDIR
+-#define FATCONFDIR "/tmp"
++#define FATCONFDIR "/usr/lib/matter"
+ #endif
+
+ #ifndef SYSCONFDIR
+-#define SYSCONFDIR "/tmp"
++#define SYSCONFDIR "/usr/lib/matter"
+ #endif
+
+ #ifndef LOCALSTATEDIR
+-#define LOCALSTATEDIR "/tmp"
++#define LOCALSTATEDIR "/usr/lib/matter"
+ #endif
+
+ #define CHIP_DEFAULT_FACTORY_PATH                                                                                                  \
+diff --git a/src/platform/Linux/CHIPPlatformConfig.h b/src/platform/Linux/CHIPPlatformConfig.h
+index 788fe9b80c..7dd7abe081 100644
+--- a/src/platform/Linux/CHIPPlatformConfig.h
++++ b/src/platform/Linux/CHIPPlatformConfig.h
+@@ -67,5 +67,5 @@ using CHIP_CONFIG_PERSISTED_STORAGE_KEY_TYPE = const char *;
+ // ==================== Security Configuration Overrides ====================
+
+ #ifndef CHIP_CONFIG_KVS_PATH
+-#define CHIP_CONFIG_KVS_PATH "/tmp/chip_kvs"
++#define CHIP_CONFIG_KVS_PATH "/usr/lib/matter/chip_kvs"
+ #endif // CHIP_CONFIG_KVS_PATH

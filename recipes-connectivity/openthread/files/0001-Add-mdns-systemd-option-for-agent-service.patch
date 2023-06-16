@@ -1,0 +1,44 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index df7c230228..387a182178 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -38,11 +38,11 @@ set(OTBR_VENDOR_NAME "OpenThread" CACHE STRING "The vendor name")
+ set(OTBR_PRODUCT_NAME "BorderRouter" CACHE STRING "The product name")
+ set(OTBR_NAME "${OTBR_VENDOR_NAME}_${OTBR_PRODUCT_NAME}" CACHE STRING "The package name")
+ set(OTBR_MESHCOP_SERVICE_INSTANCE_NAME "${OTBR_VENDOR_NAME} ${OTBR_PRODUCT_NAME}" CACHE STRING "The OTBR MeshCoP service instance name")
+-set(OTBR_MDNS "avahi" CACHE STRING "mDNS publisher provider")
++set(OTBR_MDNS "mDNSResponder_systemd" CACHE STRING "mDNS publisher provider")
+ set(OTBR_SYSLOG_FACILITY_ID LOG_USER CACHE STRING "Syslog logging facility")
+ set(OTBR_RADIO_URL "spinel+hdlc+uart:///dev/ttyACM0" CACHE STRING "The radio URL")
+ 
+-set_property(CACHE OTBR_MDNS PROPERTY STRINGS "avahi" "mDNSResponder")
++set_property(CACHE OTBR_MDNS PROPERTY STRINGS "avahi" "mDNSResponder" "mDNSResponder_systemd")
+ 
+ include("${PROJECT_SOURCE_DIR}/etc/cmake/options.cmake")
+ 
+diff --git a/src/agent/CMakeLists.txt b/src/agent/CMakeLists.txt
+index 9a8b710238..a18980713a 100644
+--- a/src/agent/CMakeLists.txt
++++ b/src/agent/CMakeLists.txt
+@@ -69,6 +69,8 @@ set(OTBR_AGENT_GROUP "root" CACHE STRING "set the group using otbr-agent client"
+ 
+ if(OTBR_MDNS STREQUAL "mDNSResponder")
+     set(EXEC_START_PRE "ExecStartPre=service mdns start\n")
++elseif(OTBR_MDNS STREQUAL "mDNSResponder_systemd")
++    set(EXEC_START_PRE "ExecStartPre=systemctl start mdns\n")
+ elseif(OTBR_MDNS STREQUAL "avahi")
+     set(EXEC_START_PRE "ExecStartPre=service avahi-daemon start\n")
+ else()
+diff --git a/src/mdns/CMakeLists.txt b/src/mdns/CMakeLists.txt
+index 1b28dc3cf4..22de02661d 100644
+--- a/src/mdns/CMakeLists.txt
++++ b/src/mdns/CMakeLists.txt
+@@ -44,7 +44,7 @@ if(OTBR_MDNS STREQUAL "avahi")
+     )
+ endif()
+ 
+-if(OTBR_MDNS STREQUAL "mDNSResponder")
++if(OTBR_MDNS STREQUAL "mDNSResponder" OR OTBR_MDNS STREQUAL "mDNSResponder_systemd")
+     add_library(otbr-mdns
+         mdns.cpp
+         mdns_mdnssd.cpp
