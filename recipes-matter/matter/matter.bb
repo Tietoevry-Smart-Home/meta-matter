@@ -1,3 +1,5 @@
+# © Tietoevry 2023
+
 PN = "matter"
 SUMMARY = "Basic Matter IoT connectivity for Yocto"
 DESCRIPTION = "This recipe provides chip-tool, chip-ota-provider-app, and chip-ota-requestor-app binaries"

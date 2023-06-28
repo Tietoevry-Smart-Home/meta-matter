@@ -1,3 +1,5 @@
+# © Tietoevry 2023
+
 PN = "zap-native"
 SUMMARY = "ZAP prebuilt tools"
 DESCRIPTION = "This recipe provides ZAP prebuilt binaries for the host system"

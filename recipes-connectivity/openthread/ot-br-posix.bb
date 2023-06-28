@@ -1,3 +1,5 @@
+# © Tietoevry 2023
+
 PN = "ot-br-posix-latest"
 SUMMARY = "Basic OpenThread support for Yocto"
 DESCRIPTION = "This recipe provides otbr-agent, and otbr-web binaries"

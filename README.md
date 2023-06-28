@@ -1,6 +1,7 @@
+[](© Tietoevry 2023)
 # Purpose
 
-This repository provides a layer for the Yocto project to conveniently build minimal matter and otbr binaries for IoT development.
+This repository provides a layer for the Yocto project to conveniently build pure and stable matter and otbr binaries for IoT development.
 
 
 The following binaries and services will be built & installed:
@@ -101,6 +102,7 @@ IMAGE_INSTALL:append = " your-other-appends wpa-supplicant bluez5"
 
 
 # Services
+
 It is recommended to use `systemd` as the service manager.
 
 
@@ -119,8 +121,12 @@ And three patches for the [ot-br-posix](https://github.com/openthread/ot-br-posi
 
 
 # Credit
-This repository was strongly inspired by the [NXP's meta-matter](https://github.com/nxp-imx/meta-matter), so most of the credit goes to its creators. However, as the name implies, that repository was primarily focused on providing matter for NXP boards together with vendor-specific security features. This project aims to provide pure and stable matter and otbr binaries for any board equipped with an ARM processor.
+
+© Tietoevry 2023
+
+This project aims to provide pure and stable matter and otbr binaries for any board equipped with an ARM processor. The work has been heavily inspired by the work done for [NXP's meta-matter](https://github.com/nxp-imx/meta-matter), so a large part of the credit goes to its creators. That repository is primarily focused on providing matter for NXP boards together with vendor-specific security features
 
 
 # Contributing
+
 If you want to contribute, feel free to fork and create a new pull request.
