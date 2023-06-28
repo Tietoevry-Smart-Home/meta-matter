@@ -1,4 +1,4 @@
-[](© Tietoevry 2023)
+<!--- © Tietoevry 2023 -->
 # Purpose
 
 This repository provides a layer for the Yocto project to conveniently build pure and stable matter and otbr binaries for IoT development.
