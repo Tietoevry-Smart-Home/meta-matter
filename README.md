@@ -22,6 +22,13 @@ The following binaries and services will be built & installed:
 | Thread  | v1.3.0      |
 
 
+# Tested on
+
+| Board | Version | OS                                                             | Using an external dongle?        |
+| ----- | ------- | -------------------------------------------------------------- | -------------------------------- |
+| RPi4B | 2GB     | 64-bit Poky (Yocto Project Reference Distro) 4.0.5 (kirkstone) | Yes - [nRF52840 Dongle (PCA10059)](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle) |
+
+
 # Usage
 
 Add the `matter` keyword to the `LAYERDEPENDS` variable:
