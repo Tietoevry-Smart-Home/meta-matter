@@ -17,8 +17,8 @@ The following binaries and services will be built & installed:
 
 | Project | Version     |
 | ------- | ----------- |
-| Matter  | v1.0.0.2    |
-| Zap     | v2023.02.27 |
+| Matter  | v1.1.0.1    |
+| Zap     | v2023.05.04 |
 | Thread  | v1.3.0      |
 
 
