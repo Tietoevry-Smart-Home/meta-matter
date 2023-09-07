@@ -14,7 +14,9 @@ SRC_URI = " \
            "
 PATCHTOOL = "git"
 # v1.0.0.2
-SRCREV = "4088a77f557e8571a39338fad51a1d8eb0131d79"
+#SRCREV = "4088a77f557e8571a39338fad51a1d8eb0131d79"
+# v1.1.0.1
+SRCREV = "8f66f4215bc0708efc8cc73bda80620e67d8955f"
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 DEPENDS += " gn-native ninja-native avahi dbus-glib-native pkgconfig-native zap-native"
