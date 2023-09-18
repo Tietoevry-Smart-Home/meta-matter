@@ -47,7 +47,7 @@ There are python build constraints that need to be satisfied in order to build m
 ```
 python -m venv mattervenv
 source mattervenv/bin/activate
-wget https://raw.githubusercontent.com/project-chip/connectedhomeip/v1.0.0.2/scripts/constraints.txt -O matter_python3_constraints.txt
+wget https://raw.githubusercontent.com/project-chip/connectedhomeip/v1.1.0.1/scripts/setup/constraints.txt -O matter_python3_constraints.txt
 pip install -r matter_python3_constraints.txt
 ```
 
